@@ -1,0 +1,308 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Color system
+ *
+ * Hex values from spec → HSL for shadcn/Tailwind compatibility:
+ *   #166534 → 142 72% 24%   (deep forest green — primary trust color)
+ *   #0ea5e9 → 199 89% 48%   (sky blue — secondary action)
+ *   #fafaf9 → 60  9%  98%   (warm white — body bg)
+ *   #f5f5f4 → 60  5%  96%   (soft gray — section bg, muted)
+ *   #111827 → 222 47% 11%   (dark text)
+ *   #e5e5e4 → 30  3%  90%   (subtle border)
+ */
+
+@layer base {
+  :root {
+    --background: 60 9% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 142 72% 24%;
+    --primary-foreground: 60 9% 98%;
+
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 60 5% 96%;
+    --muted-foreground: 215 16% 35%;
+
+    --accent: 60 5% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 60 9% 98%;
+
+    --border: 30 3% 90%;
+    --input: 30 3% 90%;
+    --ring: 142 72% 24%;
+
+    --radius: 0.625rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    /* Account for sticky header offset so anchor scrolling lands correctly. */
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* OpenType ligatures + numerics for crisp display headings. */
+    font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1, 'cv11' 1;
+    line-height: 1.55;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Typographic rhythm — tighter tracking on big headings reads more editorial. */
+  h1 {
+    letter-spacing: -0.028em;
+    font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1, 'cv11' 1, 'ss03' 1;
+  }
+  h2 {
+    letter-spacing: -0.022em;
+  }
+  h3, h4 {
+    letter-spacing: -0.018em;
+  }
+
+  /* Form controls inherit the base text color so they don't look gray. */
+  input, select, textarea {
+    color: inherit;
+  }
+
+  /* Tabular numbers in result panels — prevents jitter as numbers tick. */
+  .calc-num {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Refined focus ring — softer, more ergonomic than browser default. */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 0.375rem;
+  }
+
+  /* Make text selection match the brand. */
+  ::selection {
+    background-color: hsl(var(--primary) / 0.18);
+    color: hsl(var(--foreground));
+  }
+
+  /* Stop iOS auto-zoom on focus by keeping inputs >= 16px (Tailwind's text-base). */
+  input, select, textarea {
+    font-size: 16px;
+  }
+  @media (min-width: 768px) {
+    input, select, textarea {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+@layer components {
+  /* Body content for MDX articles. */
+  .prose-diy {
+    @apply text-base leading-relaxed text-foreground;
+  }
+  .prose-diy h2 {
+    @apply text-2xl font-bold mt-12 mb-4 tracking-tight;
+  }
+  .prose-diy h3 {
+    @apply text-xl font-semibold mt-10 mb-3;
+  }
+  .prose-diy p {
+    @apply leading-relaxed my-5;
+  }
+  .prose-diy ul {
+    @apply list-disc list-outside ml-6 my-5 space-y-2;
+  }
+  .prose-diy ol {
+    @apply list-decimal list-outside ml-6 my-5 space-y-2;
+  }
+  .prose-diy a {
+    @apply text-primary underline underline-offset-2 hover:opacity-80;
+  }
+  .prose-diy code {
+    @apply bg-muted px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+  .prose-diy blockquote {
+    @apply border-l-4 border-primary/40 bg-muted px-5 py-3 my-6 italic text-foreground/85;
+  }
+
+  /* Surface chrome — used everywhere a card needs a subtle "lifted paper" feel. */
+  .surface-card {
+    @apply rounded-xl border border-border bg-card shadow-[0_1px_2px_rgb(0_0_0_/_0.04),0_0_0_1px_rgb(0_0_0_/_0.02)];
+    transition: box-shadow 200ms ease, border-color 200ms ease, transform 200ms ease;
+  }
+
+  /* Refined card hover — slight border tint, no heavy lift. */
+  .surface-card-hover:hover {
+    @apply border-forest-200;
+    box-shadow:
+      0 6px 20px rgb(22 101 52 / 0.07),
+      0 0 0 1px rgb(22 101 52 / 0.10);
+  }
+
+  /* The "Live" pulse used in the result panel header. */
+  .live-pulse {
+    position: relative;
+  }
+  .live-pulse::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background-color: rgb(22 163 74 / 0.4);
+    animation: live-pulse 2s ease-out infinite;
+  }
+  @keyframes live-pulse {
+    0% { transform: scale(1); opacity: 0.55; }
+    100% { transform: scale(2.6); opacity: 0; }
+  }
+
+  /* Reduce motion preference. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    html { scroll-behavior: auto; }
+  }
+}
+
+@layer utilities {
+  /* Section spacing that scales nicely. */
+  .section-y {
+    @apply py-12 md:py-16;
+  }
+  .section-y-sm {
+    @apply py-8 md:py-12;
+  }
+  .section-y-lg {
+    @apply py-16 md:py-24;
+  }
+
+  /* Subtle "ascending" hover lift used on key interactive cards. */
+  .hover-lift {
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/*
+ * PRINT
+ *
+ * One result panel, no header/footer/ads/share/feedback, generous typography,
+ * URL after every external link, page-break protection on the result block.
+ *
+ * Lives outside @layer so it always wins over component-level styles.
+ */
+@media print {
+  @page {
+    margin: 0.6in;
+  }
+
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  header,
+  footer,
+  nav,
+  aside,
+  .no-print,
+  [data-ad-slot],
+  [aria-label='Advertisement'] {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  /* Title block — only show the calculator H1, no breadcrumbs etc. */
+  h1, h2, h3, h4 {
+    color: #000 !important;
+    page-break-after: avoid;
+  }
+  h1 {
+    font-size: 22pt;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Print URL after external links. */
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.85em;
+    color: #555;
+  }
+
+  /* Hide internal anchors (avoids "(/calculators/foo)" noise). */
+  a[href^='/']::after,
+  a[href^='#']::after {
+    content: '' !important;
+  }
+
+  /* Result block — single page, generous breathing room. */
+  .calculator-result,
+  aside[aria-live='polite'] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Make the result panel feel like a printed receipt instead of a UI panel. */
+  aside[aria-live='polite'] {
+    border: 1px solid #d4d4d4 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+  }
+
+  /* Remove the gradient "live result" badge area chrome on paper. */
+  aside[aria-live='polite'] > div:first-child {
+    background: #fff !important;
+    border-bottom: 1px solid #d4d4d4 !important;
+  }
+
+  /* Cards become flat. */
+  .surface-card,
+  .shadow-card,
+  .shadow-card-hover {
+    background: #fff !important;
+    box-shadow: none !important;
+    border: 1px solid #d4d4d4 !important;
+  }
+
+  /* Fix dark gradient CTAs printing as black bars. */
+  [class*='bg-gradient'] {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* Buttons should not appear in print — they aren't actionable on paper. */
+  button,
+  .btn,
+  [role='button'] {
+    display: none !important;
+  }
+}
