@@ -5,9 +5,14 @@ DIY home renovation calculator + content hub. Next.js 15 / App Router / TypeScri
 ## Getting started
 
 ```bash
-pnpm install   # or npm / yarn
+git clone https://github.com/GetDawns/home-reno-calc.git
+cd home-reno-calc
+
+pnpm install   # or: npm install / yarn
 pnpm dev       # http://localhost:3000
 ```
+
+Requires [Node.js](https://nodejs.org) 18+ and [pnpm](https://pnpm.io) (`npm install -g pnpm`).
 
 ## Adding a new calculator
 
@@ -22,7 +27,9 @@ Drop an `.mdx` file in `content/blog/` with frontmatter (title, description, dat
 
 ## Affiliate setup
 
-Set environment variables in `.env.local`:
+These are optional — the app builds and runs fine without them (links simply
+won't carry your tracking tags). To earn commissions, set environment variables
+in `.env.local`:
 
 ```
 NEXT_PUBLIC_HD_TAG=your-home-depot-tag
