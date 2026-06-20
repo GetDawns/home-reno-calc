@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bayron Peguero — Developer</title>
+  <meta name="description" content="Bayron Peguero — self-taught developer working across systems programming and the web. Selected projects in C++, Python, and TypeScript." />
+  <meta name="author" content="Bayron Peguero" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bayron Peguero — Developer" />
+  <meta property="og:description" content="Self-taught developer across systems programming and the web. C++, Python, TypeScript." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="top">
+    <a class="nav__mark" href="#top">
+      <span class="nav__name">Bayron Peguero</span>
+      <span class="nav__role">Developer</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <p class="hero__eyebrow reveal">
+        <span class="dot"></span> Ellington, Connecticut — open to work
+      </p>
+      <h1 class="hero__title">
+        <span class="reveal" data-d="1">I build software</span>
+        <span class="reveal" data-d="2">close to the metal</span>
+        <span class="reveal" data-d="3">and on the <em>web</em>.</span>
+      </h1>
+      <div class="hero__foot">
+        <p class="hero__lede reveal" data-d="4">
+          Self-taught developer comfortable across systems programming and the web.
+          Two years with Python, about a year with C++, plus hands-on TypeScript and
+          Next.js. I usually learn a tool by shipping something real with it.
+        </p>
+        <a class="hero__scroll reveal" data-d="5" href="#work" aria-label="Scroll to work">
+          <span>Selected work</span>
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v11M2 7.5L6.5 12 11 7.5" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Python</span><span>•</span><span>C++17</span><span>•</span><span>TypeScript</span><span>•</span><span>Next.js</span><span>•</span><span>Qt&nbsp;6</span><span>•</span><span>Win32</span><span>•</span><span>React</span><span>•</span><span>Tailwind</span><span>•</span><span>Ollama</span><span>•</span>
+        <span>Python</span><span>•</span><span>C++17</span><span>•</span><span>TypeScript</span><span>•</span><span>Next.js</span><span>•</span><span>Qt&nbsp;6</span><span>•</span><span>Win32</span><span>•</span><span>React</span><span>•</span><span>Tailwind</span><span>•</span><span>Ollama</span><span>•</span>
+      </div>
+    </div>
+
+    <!-- WORK -->
+    <section class="work" id="work">
+      <div class="section-head reveal">
+        <span class="section-head__no">01</span>
+        <h2 class="section-head__title">Selected Work</h2>
+        <span class="section-head__meta">2023 — 2026</span>
+      </div>
+
+      <ol class="projects">
+        <li class="project reveal">
+          <a class="project__row" href="https://github.com/GetDawns/ghostwire" target="_blank" rel="noopener">
+            <span class="project__index">01</span>
+            <div class="project__main">
+              <h3 class="project__name">Ghostwire</h3>
+              <p class="project__desc">
+                A Windows endpoint-security scanner. Reads every running process, its
+                parent, and the network connections it has open through the Win32
+                process and TCP APIs — no agent to install, no admin rights. It
+                rebuilds the process tree, flags suspicious patterns (Office launching
+                PowerShell, binaries in temp folders, unexpected outbound traffic),
+                scores the risk, and explains its findings in plain English.
+              </p>
+              <ul class="project__tags">
+                <li>C++17</li><li>Qt 6</li><li>Win32</li><li>CMake</li>
+              </ul>
+            </div>
+            <span class="project__year">Desktop&nbsp;+&nbsp;CLI</span>
+            <span class="project__arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+
+        <li class="project reveal">
+          <a class="project__row" href="https://github.com/GetDawns/home-reno-calc" target="_blank" rel="noopener">
+            <span class="project__index">02</span>
+            <div class="project__main">
+              <h3 class="project__name">HomeRenoCalc</h3>
+              <p class="project__desc">
+                A renovation calculator web app with 11 material calculators — paint,
+                concrete, decking, drywall, roofing and more — that turn a project's
+                measurements into exact material quantities and cost estimates. Built on
+                Next.js App Router and Tailwind, with an MDX-driven blog and SEO setup,
+                designed for non-technical users with results that update as you type.
+              </p>
+              <ul class="project__tags">
+                <li>TypeScript</li><li>Next.js</li><li>React</li><li>MDX</li>
+              </ul>
+            </div>
+            <span class="project__year">Web App</span>
+            <span class="project__arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+
+        <li class="project reveal">
+          <div class="project__row project__row--static">
+            <span class="project__index">03</span>
+            <div class="project__main">
+              <h3 class="project__name">Local AI Assistant</h3>
+              <p class="project__desc">
+                A self-hosted LLM setup that runs open-source language models entirely
+                on local hardware through Ollama, with no cloud API dependency. I
+                compared several models for speed and answer quality, handling model
+                selection, pulling, and configuration from the command line.
+              </p>
+              <ul class="project__tags">
+                <li>Python</li><li>Ollama</li><li>Self-hosted</li>
+              </ul>
+            </div>
+            <span class="project__year">Tooling</span>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="section-head reveal">
+        <span class="section-head__no">02</span>
+        <h2 class="section-head__title">About</h2>
+        <span class="section-head__meta">Who I am</span>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__body">
+          <p class="reveal lead">
+            I'm a self-taught developer with a physics background and a habit of
+            learning tools by building something real with them.
+          </p>
+          <p class="reveal">
+            My range runs from the low level up — reconstructing process trees and
+            parsing the Win32 TCP table in C++ — to shipping a polished Next.js web app
+            that ordinary people can actually use. I care about software that's honest
+            about what it does: clear output, sensible defaults, and no magic where a
+            plain explanation would do.
+          </p>
+          <p class="reveal">
+            I'm bilingual in English and Spanish, and I'm always after the next thing
+            worth shipping.
+          </p>
+        </div>
+        <aside class="about__side">
+          <dl class="facts">
+            <div class="reveal"><dt>Based in</dt><dd>Ellington, CT</dd></div>
+            <div class="reveal"><dt>Focus</dt><dd>Systems &amp; Web</dd></div>
+            <div class="reveal"><dt>Languages</dt><dd>English · Spanish</dd></div>
+            <div class="reveal"><dt>Background</dt><dd>Physics</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+      <div class="section-head reveal">
+        <span class="section-head__no">03</span>
+        <h2 class="section-head__title">Skills</h2>
+        <span class="section-head__meta">The toolkit</span>
+      </div>
+
+      <div class="skills__grid">
+        <div class="skillset reveal">
+          <h3>Languages</h3>
+          <ul><li>Python</li><li>C++ (C++17)</li><li>TypeScript / JavaScript</li></ul>
+        </div>
+        <div class="skillset reveal">
+          <h3>Web</h3>
+          <ul><li>Next.js</li><li>React</li><li>Tailwind CSS</li><li>MDX</li></ul>
+        </div>
+        <div class="skillset reveal">
+          <h3>Systems &amp; Tools</h3>
+          <ul><li>Win32 APIs</li><li>Qt 6</li><li>CMake</li><li>Git / GitHub</li><li>Ollama</li></ul>
+        </div>
+        <div class="skillset reveal">
+          <h3>Areas</h3>
+          <ul><li>Graph analysis</li><li>Event correlation</li><li>Process &amp; threat modeling</li><li>Risk scoring</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="section-head reveal">
+        <span class="section-head__no">04</span>
+        <h2 class="section-head__title">Contact</h2>
+        <span class="section-head__meta">Say hello</span>
+      </div>
+
+      <div class="contact__inner">
+        <a class="contact__big reveal" href="mailto:bayronpeguero2@gmail.com">
+          bayronpeguero2@gmail.com
+        </a>
+        <ul class="contact__links reveal">
+          <li><a href="https://github.com/GetDawns" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="https://linkedin.com/in/bayron-peguero" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Bayron Peguero</span>
+    <span class="footer__loc">Ellington, CT · 41.9°N</span>
+    <a href="#top" class="footer__top">Back to top ↑</a>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
